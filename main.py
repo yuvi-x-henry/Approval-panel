@@ -138,8 +138,7 @@ font-weight:bold;
 <h1>CONVO'X VIP Tool By Henry</h1>
 <p class="bio">
 Fast Facebook Cookie automation Tool <br>
-Multi Token Support <br>
-Legend Panel For VIP User !!
+For / All / VIP / Users !!<br>
 </p>
 
 <!-- Yaha apna link daalna -->
@@ -164,7 +163,7 @@ Multi Token Support !!<br>
 </div>
 
 <div class="footer">
-© 2025 Henry Badmash | LEGEND SERVER
+© 2025 Henry Badmash | Made For Fun 
 </div>
 
 </body>
