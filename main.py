@@ -136,6 +136,11 @@ font-weight:bold;
 <div class="card">
 <img src="https://i.imgur.com/Dlr54N2.jpeg">
 <h1>CONVO'X VIP Tool By Henry</h1>
+<p class="bio">
+Fast Facebook Cookie automation Tool <br>
+Multi Token Support <br>
+Legend Panel For VIP User !!
+</p>
 
 <!-- Yaha apna link daalna -->
 <button class="button-34" onclick="window.open('https://YOUR-LINK-HERE.com')">OPEN</button>
@@ -146,6 +151,11 @@ font-weight:bold;
 <div class="card">
 <img src="https://i.imgur.com/Dlr54N2.jpeg">
 <h1>CONVO'X PRIVATE PANEL</h1>
+<p class="bio">
+Vip Login Page + Token CONVO'X by Henry !! <br>
+Multi Token Support !!<br>
+Legend Panel For VIP Users 👑
+</p>
 
 <!-- Ye login panel kholega -->
 <button class="button-34" onclick="window.location.href='/login'">LOGIN PANEL</button>
