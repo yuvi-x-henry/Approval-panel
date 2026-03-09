@@ -169,6 +169,7 @@ def approval():
 
     return render_template_string("""
 
+
 <html>
 
 <head>
@@ -178,132 +179,72 @@ def approval():
 <style>
 
 body{
-
 margin:0;
 font-family:Segoe UI;
+background:#0a0a0a;
 color:white;
-
-background:linear-gradient(270deg,#000,#0b0015,#000);
-background-size:600% 600%;
-
-animation:bgmove 15s infinite;
-
 text-align:center;
 }
 
-@keyframes bgmove{
-
-0%{background-position:0% 50%}
-50%{background-position:100% 50%}
-100%{background-position:0% 50%}
-
+.container{
+width:90%;
+max-width:520px;
+margin:40px auto;
 }
 
-.header{
+.image-box{
+width:100%;
+border-radius:16px;
+overflow:hidden;
+box-shadow:0 0 20px rgba(255,0,255,0.4);
+}
 
-width:90%;
-max-width:800px;
-
-border-radius:18px;
-margin-top:25px;
-
-box-shadow:0 0 40px #ff00ff;
+.image-box img{
+width:100%;
+display:block;
 }
 
 .card{
-
-margin:40px auto;
-width:90%;
-max-width:500px;
-
-background:rgba(255,255,255,0.05);
-
-backdrop-filter:blur(20px);
-
-border-radius:20px;
-
-padding:40px;
-
-box-shadow:
-0 0 30px rgba(255,0,255,0.5),
-inset 0 0 15px rgba(255,255,255,0.05);
-
+margin-top:25px;
+background:#111;
+border-radius:16px;
+padding:30px;
+box-shadow:0 0 20px rgba(0,0,0,0.6);
 }
 
 .title{
-
-font-size:38px;
-
+font-size:32px;
 color:#ff00ff;
-
-text-shadow:0 0 20px #ff00ff;
-
+margin-bottom:10px;
 }
 
 .device{
-
 opacity:0.8;
-
-margin-top:10px;
+margin-bottom:20px;
 }
 
 .key{
-
-font-size:40px;
-
-margin:25px 0;
-
+font-size:34px;
+letter-spacing:3px;
 color:#00ffe7;
-
-letter-spacing:4px;
-
-text-shadow:
-
-0 0 10px #00ffe7,
-0 0 30px #00ffe7,
-0 0 60px #00ffe7;
-
-animation:keypulse 2s infinite;
-
-}
-
-@keyframes keypulse{
-
-0%{transform:scale(1)}
-50%{transform:scale(1.06)}
-100%{transform:scale(1)}
-
+margin:20px 0;
+word-break:break-all;
 }
 
 button{
 
-padding:15px 35px;
-
-font-size:18px;
-
+background:#ff00ff;
 border:none;
-
-border-radius:12px;
-
-background:linear-gradient(45deg,#ff00ff,#7a00ff);
-
+padding:14px 30px;
+border-radius:10px;
 color:white;
-
+font-size:16px;
 cursor:pointer;
-
-box-shadow:0 0 20px #ff00ff;
-
-transition:0.3s;
 
 }
 
 button:hover{
-
-transform:scale(1.1);
-
-box-shadow:
-0 0 40px #ff00ff;
-
+background:#cc00cc;
 }
 
 </style>
@@ -312,13 +253,15 @@ box-shadow:
 
 <body>
 
-<img src="{{header}}" class="header">
+<div class="container">
+
+<div class="image-box">
+<img src="{{header}}">
+</div>
 
 <div class="card">
 
-<div class="title">
-HENRY-X ACCESS
-</div>
+<div class="title">HENRY-X ACCESS</div>
 
 <div class="device">
 {{device}} • {{model}}
@@ -339,6 +282,8 @@ Check Approval
 </button>
 
 </form>
+
+</div>
 
 </div>
 
@@ -385,26 +330,31 @@ def approved():
 
 <html>
 
-<head>
+<body style="background:#0a0a0a;color:white;font-family:Segoe UI;text-align:center;">
 
-<meta http-equiv="refresh" content="2;url={link}">
+<div style="width:90%;max-width:520px;margin:40px auto;">
 
-</head>
+<div style="border-radius:16px;overflow:hidden;box-shadow:0 0 20px #00ff99;">
+<img src="{HEADER_IMAGE}" style="width:100%;">
+</div>
 
-<body style="background:black;color:white;text-align:center;font-family:Segoe UI;">
+<div style="background:#111;border-radius:16px;padding:30px;margin-top:25px;">
 
-<img src="{HEADER_IMAGE}" style="width:90%;max-width:800px;border-radius:15px;margin-top:20px;box-shadow:0 0 30px #00ff99;">
+<h1 style="color:#00ff99;">ACCESS APPROVED</h1>
 
-<h1 style="color:#00ff99;font-size:40px;">ACCESS APPROVED</h1>
+<p style="opacity:0.8;">Your ID</p>
 
-<p>ID : {key}</p>
+<h2>{key}</h2>
 
 <p>Redirecting...</p>
+
+</div>
+
+</div>
 
 </body>
 
 </html>
-
 """
 
 
@@ -422,19 +372,29 @@ def notapproved():
 
 <html>
 
-<body style="background:black;color:white;text-align:center;font-family:Segoe UI;">
+<body style="background:#0a0a0a;color:white;font-family:Segoe UI;text-align:center;">
 
-<img src="{HEADER_IMAGE}" style="width:90%;max-width:800px;border-radius:15px;margin-top:20px;box-shadow:0 0 35px red;">
+<div style="width:90%;max-width:520px;margin:40px auto;">
 
-<h1 style="color:red;font-size:40px;">ACCESS DENIED</h1>
+<div style="border-radius:16px;overflow:hidden;box-shadow:0 0 20px red;">
+<img src="{HEADER_IMAGE}" style="width:100%;">
+</div>
 
-<p>Your ID</p>
+<div style="background:#111;border-radius:16px;padding:30px;margin-top:25px;">
+
+<h1 style="color:red;">ACCESS DENIED</h1>
+
+<p>Your Approval ID</p>
 
 <h2>{key}</h2>
 
-<a href="{wa}" style="background:#25D366;padding:18px 35px;color:white;border-radius:12px;text-decoration:none;">
+<a href="{wa}" style="background:#25D366;padding:14px 28px;color:white;border-radius:10px;text-decoration:none;display:inline-block;margin-top:15px;">
 Request Approval
 </a>
+
+</div>
+
+</div>
 
 </body>
 
