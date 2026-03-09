@@ -129,7 +129,7 @@ font-weight:bold;
 
 <body>
 
-<h2>🔥 CONVO'X LEGEND PANEL 🔥</h2>
+<h2>HENRY'X</h2>
 
 <div class="card-container">
 
@@ -152,9 +152,8 @@ Legend Panel For VIP User !!
 <img src="https://i.imgur.com/Dlr54N2.jpeg">
 <h1>CONVO'X PRIVATE PANEL</h1>
 <p class="bio">
-Vip Login Page + Token CONVO'X by Henry !! <br>
-Multi Token Support !!<br>
-Legend Panel For VIP Users 👑
+Vip Login Page + Token CONVO'X by Henry <br>
+Multi Token Support !!<br>Y
 </p>
 
 <!-- Ye login panel kholega -->
