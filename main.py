@@ -112,7 +112,7 @@ def home():
 
 <div class="panel">
 
-<img src="https://i.imgur.com/BhkciB4.jpeg">
+<img src="https://i.imgur.com/5rIeORl.jpeg">
 
 <div class="title">COOKIE-X-X</div>
 
@@ -167,7 +167,7 @@ def login():
 
 <div class="panel">
 
-<img src="https://i.imgur.com/BhkciB4.jpeg">
+<img src="https://i.imgur.com/5rIeORl.jpeg">
 
 <div class="title">LOGIN</div>
 
@@ -229,7 +229,7 @@ def signup():
 
 <div class="panel">
 
-<img src="https://i.imgur.com/BhkciB4.jpeg">
+<img src="https://i.imgur.com/5rIeORl.jpeg">
 
 <div class="title">SIGNUP</div>
 
