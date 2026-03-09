@@ -150,120 +150,163 @@ def approval():
     if is_key_approved(key):
         return redirect(url_for("approved",key=key))
 
-    return f"""
+    
+    return redirect(url_for("notapproved",key=key))
+
+
+return f"""
 <html>
-<body style="background:black;color:white;text-align:center;font-family:Segoe UI;">
 
-<img src="{HEADER_IMAGE}" style="width:800px;border-radius:12px;margin-top:20px;">
+<head>
 
-<h1 style="color:#ff00ff;">HENRY-X Approval</h1>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<p>{device_name} - {device_model}</p>
+<style>
 
-<h2>Your Approval ID</h2>
+body {{
+margin:0;
+font-family:Segoe UI;
+background:linear-gradient(270deg,#000000,#0a0015,#000000);
+background-size:600% 600%;
+animation:bgmove 15s infinite;
+color:white;
+text-align:center;
+}}
 
-<p style="font-size:40px;color:#ff00ff;">{key}</p>
+@keyframes bgmove {{
+0%{{background-position:0% 50%;}}
+50%{{background-position:100% 50%;}}
+100%{{background-position:0% 50%;}}
+}}
+
+.header-img {{
+width:90%;
+max-width:800px;
+border-radius:18px;
+margin-top:20px;
+box-shadow:0 0 40px #ff00ff;
+}}
+
+.card {{
+
+margin:40px auto;
+width:90%;
+max-width:550px;
+
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(20px);
+
+border:1px solid rgba(255,255,255,0.15);
+border-radius:20px;
+
+padding:40px;
+
+box-shadow:
+0 0 30px rgba(255,0,255,0.4),
+inset 0 0 20px rgba(255,255,255,0.05);
+
+}}
+
+.title {{
+font-size:38px;
+color:#ff00ff;
+text-shadow:0 0 15px #ff00ff;
+}}
+
+.device {{
+opacity:0.8;
+margin-bottom:25px;
+}}
+
+.key {{
+
+font-size:42px;
+letter-spacing:4px;
+margin:25px 0;
+
+color:#00ffe7;
+
+text-shadow:
+0 0 10px #00ffe7,
+0 0 25px #00ffe7,
+0 0 45px #00ffe7;
+
+animation:keypulse 2s infinite;
+}}
+
+@keyframes keypulse {{
+
+0%{{transform:scale(1)}}
+50%{{transform:scale(1.06)}}
+100%{{transform:scale(1)}}
+
+}}
+
+.btn {{
+
+padding:16px 40px;
+
+font-size:18px;
+
+border:none;
+border-radius:12px;
+
+background:linear-gradient(45deg,#ff00ff,#7a00ff);
+
+color:white;
+
+cursor:pointer;
+
+transition:0.4s;
+
+box-shadow:0 0 15px #ff00ff;
+
+}}
+
+.btn:hover {{
+
+transform:scale(1.08);
+
+box-shadow:
+0 0 25px #ff00ff,
+0 0 45px #ff00ff;
+
+}}
+
+</style>
+
+</head>
+
+<body>
+
+<img src="{HEADER_IMAGE}" class="header-img">
+
+<div class="card">
+
+<div class="title">HENRY-X ACCESS</div>
+
+<div class="device">{device_name} • {device_model}</div>
+
+<div>Your Approval ID</div>
+
+<div class="key">{key}</div>
 
 <form action="/check" method="post">
 
 <input type="hidden" name="key" value="{key}">
 
-<button style="padding:15px 30px;font-size:18px;background:#ff00ff;border:none;border-radius:10px;color:white;">
+<button class="btn">
 Check Approval
 </button>
 
 </form>
 
-</body>
-</html>
-"""
-
-# ---------- Check ----------
-@app.route("/check",methods=["POST"])
-def check():
-
-    key = request.form.get("key","")
-
-    try:
-
-        r = requests.get(
-            "https://pastebin.com/raw/dS4jJZDY",
-            timeout=5
-        )
-
-        approved = [x.strip() for x in r.text.splitlines()]
-
-    except:
-        approved = []
-
-    if key in approved:
-        save_approved_key(key)
-        return redirect(url_for("approved",key=key))
-
-    return redirect(url_for("notapproved",key=key))
-
-# ---------- Approved ----------
-@app.route("/approved")
-def approved():
-
-    key = request.args.get("key","")
-
-    link = "https://apparent-jonie-farman-64b2ec8e.koyeb.app/"
-
-    return f"""
-<html>
-<head>
-
-<meta http-equiv="refresh" content="2;url={link}">
-
-</head>
-
-<body style="background:black;color:white;text-align:center;font-family:Segoe UI;">
-
-<img src="{HEADER_IMAGE}" style="width:800px;border-radius:12px;margin-top:20px;">
-
-<h1 style="color:#00ff99;">APPROVED</h1>
-
-<p>ID : {key}</p>
-
-<p>Redirecting...</p>
-
-</body>
-</html>
-"""
-
-# ---------- Not Approved ----------
-@app.route("/notapproved")
-def notapproved():
-
-    key = request.args.get("key","")
-
-    text = f"Hello I want approval for HENRY-X. My ID is {key}"
-
-    wa = "https://wa.me/919235741670?text="+requests.utils.requote_uri(text)
-
-    return f"""
-<html>
-
-<body style="background:black;color:white;text-align:center;font-family:Segoe UI;">
-
-<img src="{HEADER_IMAGE}" style="width:800px;border-radius:12px;margin-top:20px;">
-
-<h1 style="color:red;">ACCESS DENIED</h1>
-
-<p>Your ID</p>
-
-<h2>{key}</h2>
-
-<a href="{wa}" style="background:#25D366;padding:20px 30px;color:white;border-radius:10px;text-decoration:none;">
-Request Approval
-</a>
+</div>
 
 </body>
 
 </html>
 """
-
 if __name__ == "__main__":
 
     port = int(os.environ.get("PORT",5000))
