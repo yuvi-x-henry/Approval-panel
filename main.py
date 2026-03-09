@@ -109,14 +109,14 @@ color:white;
 
 <div class="panel">
 
-<img src="https://i.imgur.com/6xK9F0S.jpeg">
+<img src="https://i.imgur.com/BhkciB4.jpeg">
 
-<div class="title">HENRY-X</div>
+<div class="title">COOKIE-X-X</div>
 
-<button class="btn">CONVO'X</button>
-<button class="btn">THREAD'X</button>
+<button class="btn">LOGIN'X</button>
+<button class="btn">SIGNUP'X</button>
 
-<div class="footer">THIS WEB IS MADE BY HENRY</div>
+<div class="footer">Coookie Automation Tool / By / Owner Henry !!</div>
 
 </div>
 
