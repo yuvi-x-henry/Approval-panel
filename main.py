@@ -330,23 +330,27 @@ def approved():
 
 <html>
 
-<body style="background:#0a0a0a;color:white;font-family:Segoe UI;text-align:center;">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
 
-<div style="width:90%;max-width:520px;margin:40px auto;">
+<body style="margin:0;background:#0a0a0a;color:white;font-family:Segoe UI;text-align:center;">
 
-<div style="border-radius:16px;overflow:hidden;box-shadow:0 0 20px #00ff99;">
-<img src="{HEADER_IMAGE}" style="width:100%;">
+<div style="width:100%;padding:20px;box-sizing:border-box;">
+
+<div style="width:100%;border-radius:16px;overflow:hidden;box-shadow:0 0 30px #00ff99;">
+<img src="{HEADER_IMAGE}" style="width:100%;display:block;">
 </div>
 
-<div style="background:#111;border-radius:16px;padding:30px;margin-top:25px;">
+<div style="margin-top:30px;background:#111;border-radius:16px;padding:40px;box-shadow:0 0 25px rgba(0,0,0,0.6);">
 
-<h1 style="color:#00ff99;">ACCESS APPROVED</h1>
+<h1 style="color:#00ff99;font-size:42px;">ACCESS APPROVED</h1>
 
-<p style="opacity:0.8;">Your ID</p>
+<p style="opacity:0.8;">Your Approval ID</p>
 
-<h2>{key}</h2>
+<h2 style="font-size:34px;">{key}</h2>
 
-<p>Redirecting...</p>
+<p style="margin-top:20px;">Redirecting...</p>
 
 </div>
 
@@ -355,6 +359,7 @@ def approved():
 </body>
 
 </html>
+
 """
 
 
@@ -372,23 +377,27 @@ def notapproved():
 
 <html>
 
-<body style="background:#0a0a0a;color:white;font-family:Segoe UI;text-align:center;">
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
 
-<div style="width:90%;max-width:520px;margin:40px auto;">
+<body style="margin:0;background:#0a0a0a;color:white;font-family:Segoe UI;text-align:center;">
 
-<div style="border-radius:16px;overflow:hidden;box-shadow:0 0 20px red;">
-<img src="{HEADER_IMAGE}" style="width:100%;">
+<div style="width:100%;padding:20px;box-sizing:border-box;">
+
+<div style="width:100%;border-radius:16px;overflow:hidden;box-shadow:0 0 30px red;">
+<img src="{HEADER_IMAGE}" style="width:100%;display:block;">
 </div>
 
-<div style="background:#111;border-radius:16px;padding:30px;margin-top:25px;">
+<div style="margin-top:30px;background:#111;border-radius:16px;padding:40px;box-shadow:0 0 25px rgba(0,0,0,0.6);">
 
-<h1 style="color:red;">ACCESS DENIED</h1>
+<h1 style="color:red;font-size:42px;">ACCESS DENIED</h1>
 
 <p>Your Approval ID</p>
 
-<h2>{key}</h2>
+<h2 style="font-size:34px;">{key}</h2>
 
-<a href="{wa}" style="background:#25D366;padding:14px 28px;color:white;border-radius:10px;text-decoration:none;display:inline-block;margin-top:15px;">
+<a href="{wa}" style="background:#25D366;padding:16px 32px;color:white;border-radius:10px;text-decoration:none;display:inline-block;margin-top:25px;font-size:18px;">
 Request Approval
 </a>
 
