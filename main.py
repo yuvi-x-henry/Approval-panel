@@ -273,6 +273,29 @@ def dashboard():
 
 {STYLE}
 
+<style>
+
+.start-btn{{
+position:relative;
+overflow:hidden;
+}}
+
+.loader{{
+position:absolute;
+top:0;
+left:-100%;
+width:100%;
+height:100%;
+background:linear-gradient(to right,transparent,#00ff88);
+transition:3s;
+}}
+
+.start-btn.active .loader{{
+left:0;
+}}
+
+</style>
+
 </head>
 
 <body>
@@ -283,14 +306,40 @@ def dashboard():
 
 <div class="title">WELCOME {user}</div>
 
-<a href="/logout"><button class="btn">LOGOUT</button></a>
+<button class="btn start-btn" onclick="startTool()" id="startBtn">
+
+<div class="loader" id="loader"></div>
+
+START'X
+
+</button>
 
 </div>
+
+<script>
+
+function startTool(){{
+
+let btn=document.getElementById("startBtn");
+
+btn.classList.add("active");
+
+setTimeout(function(){{
+
+window.location.href="https://example.com";
+
+}},3000);
+
+}}
+
+</script>
 
 </body>
 </html>
 
 """
+
+    return render_template_string(html)
 
     return render_template_string(html)
 
