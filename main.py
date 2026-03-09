@@ -153,7 +153,7 @@ box-shadow:0 0 35px #ff00ff;
 
 <div class="status">🟢 ONLINE</div>
 
-<img src="https://raw.githubusercontent.com/yuvi-x-henry/Pf/refs/heads/main/b45a917fb1a7d431a648ceb17c4df71e.jpg">
+<img src="https://raw.githubusercontent.com/yuvi-x-henry/Pf/refs/heads/main/7bc21a7c678acafd78cfff47b2d14668.jpg">
 
 <h1>COOKIES'X</h1>
 
@@ -173,7 +173,7 @@ For All VIP Users !!
 
 <div class="status">🟢 ONLINE</div>
 
-<img src="https://raw.githubusercontent.com/yuvi-x-henry/Pf/refs/heads/main/b45a917fb1a7d431a648ceb17c4df71e.jpg">
+<img src="https://raw.githubusercontent.com/yuvi-x-henry/Pf/refs/heads/main/7bc21a7c678acafd78cfff47b2d14668.jpg">
 
 <h1>CONVO'X</h1>
 
