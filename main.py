@@ -10,92 +10,272 @@ app = Flask(__name__)
 # ---------------- DASHBOARD ----------------
 HTML_DASHBOARD = """
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HENRY-X Panel</title>
+<title>HENRY-X</title>
+
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Italic&display=swap');
-*{margin:0;padding:0;box-sizing:border-box;}
-body{background:radial-gradient(circle,#050505,#000);display:flex;flex-direction:column;align-items:center;min-height:100vh;padding:2rem;color:#fff;}
-header{text-align:center;margin-bottom:2rem;}
-header h1{font-size:2.5rem;font-weight:bold;letter-spacing:2px;font-family:sans-serif;color:white;}
-.container{display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;width:100%;}
-.card{position:relative;width:360px;height:460px;border-radius:18px;overflow:hidden;background:#111;cursor:pointer;box-shadow:0 0 25px rgba(255,0,0,0.2);transition:transform 0.3s ease;}
-.card:hover{transform:scale(1.03);}
-.card video{width:100%;height:100%;object-fit:cover;filter:brightness(0.85);}
-.overlay{position:absolute;bottom:-100%;left:0;width:100%;height:100%;background:linear-gradient(to top, rgba(255,0,0,0.55), transparent 70%);display:flex;flex-direction:column;justify-content:flex-end;padding:25px;opacity:0;transition:all 0.4s ease-in-out;z-index:2;}
-.card.active .overlay{bottom:0;opacity:1;}
-.overlay h3{font-family:"Russo One",sans-serif;font-size:28px;margin-bottom:10px;text-shadow:0 0 15px #ff0033,0 0 25px rgba(255,0,0,0.7);color:#fff;letter-spacing:1px;animation:slideUp 0.4s ease forwards;}
-.overlay p{font-family:'Fira Sans Italic',sans-serif;font-size:15px;color:#f2f2f2;margin-bottom:15px;opacity:0;animation:fadeIn 0.6s ease forwards;animation-delay:0.2s;}
-.open-btn{align-self:center;background:linear-gradient(45deg,#ff0040,#ff1a66);border:none;padding:10px 25px;border-radius:25px;font-size:16px;color:white;cursor:pointer;font-family:"Russo One",sans-serif;box-shadow:0 0 15px rgba(255,0,0,0.7);transition:all 0.3s ease;opacity:0;animation:fadeIn 0.6s ease forwards;animation-delay:0.4s;}
-.open-btn:hover{transform:scale(1.1);box-shadow:0 0 25px rgba(255,0,0,1);}
-@keyframes slideUp{from{transform:translateY(30px);opacity:0;}to{transform:translateY(0);opacity:1;}}
-@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
-footer{margin-top:2rem;font-size:1rem;font-family:sans-serif;color:#888;text-align:center;}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+background:radial-gradient(circle,#050505,#000);
+color:white;
+display:flex;
+flex-direction:column;
+align-items:center;
+min-height:100vh;
+}
+
+/* HEADER */
+
+header{
+width:100%;
+padding:20px;
+text-align:center;
+font-size:28px;
+font-weight:bold;
+letter-spacing:2px;
+}
+
+/* MENU BUTTON */
+
+.menu-btn{
+position:fixed;
+top:15px;
+left:15px;
+font-size:28px;
+cursor:pointer;
+z-index:1001;
+}
+
+/* DRAWER */
+
+.drawer{
+position:fixed;
+top:0;
+left:-260px;
+width:260px;
+height:100%;
+background:#111;
+transition:0.3s;
+padding:20px;
+z-index:1000;
+}
+
+.drawer h2{
+text-align:center;
+margin-bottom:25px;
+}
+
+.drawer a{
+display:block;
+padding:14px;
+margin:10px 0;
+background:#1a1a1a;
+border-radius:10px;
+text-align:center;
+text-decoration:none;
+color:white;
+font-size:16px;
+}
+
+.drawer a:hover{
+background:#333;
+}
+
+.drawer.active{
+left:0;
+}
+
+/* CONTAINER */
+
+.container{
+display:flex;
+flex-wrap:wrap;
+gap:25px;
+justify-content:center;
+padding:30px;
+}
+
+/* CARD */
+
+.card{
+position:relative;
+width:350px;
+height:440px;
+border-radius:18px;
+overflow:hidden;
+background:#111;
+cursor:pointer;
+box-shadow:0 0 25px rgba(255,0,0,0.2);
+}
+
+.card video{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+/* OVERLAY */
+
+.overlay{
+position:absolute;
+bottom:-100%;
+left:0;
+width:100%;
+height:100%;
+background:linear-gradient(to top,rgba(255,0,0,0.6),transparent);
+display:flex;
+flex-direction:column;
+justify-content:flex-end;
+align-items:center;
+padding:25px;
+text-align:center;
+transition:0.4s;
+}
+
+.card.active .overlay{
+bottom:0;
+}
+
+.overlay h3{
+font-size:24px;
+margin-bottom:10px;
+}
+
+.overlay p{
+font-size:14px;
+margin-bottom:15px;
+}
+
+.open-btn{
+background:linear-gradient(45deg,#ff0040,#ff1a66);
+border:none;
+padding:10px 28px;
+border-radius:25px;
+font-size:16px;
+color:white;
+cursor:pointer;
+}
+
+.open-btn:hover{
+transform:scale(1.08);
+}
+
+footer{
+margin-top:20px;
+margin-bottom:20px;
+font-size:14px;
+color:#aaa;
+text-align:center;
+}
+
 </style>
 </head>
+
 <body>
-<header><h1>HENRY-X</h1></header>
+
+<div class="menu-btn" onclick="toggleDrawer()">☰</div>
+
+<div class="drawer" id="drawer">
+<h2>HENRY-X</h2>
+
+<a href="/">Section 1</a>
+
+<a href="YOUR_LINK_HERE" target="_blank">Section 2</a>
+
+</div>
+
+<header>HENRY-X</header>
+
 <div class="container">
 
-<!-- Card 1 -->
+<!-- CARD 1 -->
+
 <div class="card" onclick="toggleOverlay(this)">
-  <video autoplay muted loop playsinline>
-    <source src="https://raw.githubusercontent.com/serverxdt/Approval/main/223.mp4" type="video/mp4">
-  </video>
-  <div class="overlay">
-    <h3>Convo 3.0</h3>
-    <p>Non Stop Convo By Henry | Multy + Single Bot</p>
-    <button class="open-btn" onclick="event.stopPropagation(); window.open('......','_blank')">OPEN</button>
-  </div>
+<video autoplay muted loop playsinline>
+<source src="https://raw.githubusercontent.com/serverxdt/Approval/main/223.mp4">
+</video>
+
+<div class="overlay">
+<h3>Convo 3.0</h3>
+<p>Non Stop Convo | Multi + Single Bot</p>
+<button class="open-btn" onclick="event.stopPropagation();window.open('........','_blank')">OPEN</button>
+</div>
 </div>
 
-<!-- Card 2 -->
+
+<!-- CARD 2 -->
+
 <div class="card" onclick="toggleOverlay(this)">
-  <video autoplay muted loop playsinline>
-    <source src="https://raw.githubusercontent.com/serverxdt/Approval/main/Anime.mp4" type="video/mp4">
-  </video>
-  <div class="overlay">
-    <h3>Post 3.0</h3>
-    <p>Multy Cookie + Multy Token | Thread Stop/Resume/Pause</p>
-    <button class="open-btn" onclick="event.stopPropagation(); window.open('/post_tool','_blank')">OPEN</button>
-  </div>
+<video autoplay muted loop playsinline>
+<source src="https://raw.githubusercontent.com/serverxdt/Approval/main/Anime.mp4">
+</video>
+
+<div class="overlay">
+<h3>Post 3.0</h3>
+<p>Multi Cookie + Token | Thread Control</p>
+<button class="open-btn" onclick="event.stopPropagation();window.open('/post_tool','_blank')">OPEN</button>
+</div>
 </div>
 
-<!-- Card 3 -->
+
+<!-- CARD 3 -->
+
 <div class="card" onclick="toggleOverlay(this)">
-  <video autoplay muted loop playsinline>
-    <source src="https://raw.githubusercontent.com/serverxdt/Approval/main/GOKU%20_%20DRAGON%20BALZZ%20_%20anime%20dragonballz%20dragonballsuper%20goku%20animeedit%20animetiktok.mp4" type="video/mp4">
-  </video>
-  <div class="overlay">
-    <h3>Token Checker 3.0</h3>
-    <p>Token Checker + GC UID Extractor Bot</p>
-    <button class="open-btn" onclick="event.stopPropagation(); window.open('/token','_blank')">OPEN</button>
-  </div>
+<video autoplay muted loop playsinline>
+<source src="https://raw.githubusercontent.com/serverxdt/Approval/main/GOKU%20_%20DRAGON%20BALZZ%20_%20anime%20dragonballz%20dragonballsuper%20goku%20animeedit%20animetiktok.mp4">
+</video>
+
+<div class="overlay">
+<h3>Token Checker</h3>
+<p>Token Checker + GC UID Extractor</p>
+<button class="open-btn" onclick="event.stopPropagation();window.open('/token','_blank')">OPEN</button>
+</div>
 </div>
 
-<!-- Card 4 -->
+
+<!-- CARD 4 -->
+
 <div class="card" onclick="toggleOverlay(this)">
-  <video autoplay muted loop playsinline>
-    <source src="https://raw.githubusercontent.com/serverxdt/Approval/main/SOLO%20LEVELING.mp4" type="video/mp4">
-  </video>
-  <div class="overlay">
-    <h3>Post UID 2.0</h3>
-    <p>Enter Your Post Link & Extract Post UID Easily</p>
-    <button class="open-btn" onclick="event.stopPropagation(); window.open('/post_uid','_blank')">OPEN</button>
-  </div>
+<video autoplay muted loop playsinline>
+<source src="https://raw.githubusercontent.com/serverxdt/Approval/main/SOLO%20LEVELING.mp4">
+</video>
+
+<div class="overlay">
+<h3>Post UID</h3>
+<p>Extract Post UID Easily</p>
+<button class="open-btn" onclick="event.stopPropagation();window.open('/post_uid','_blank')">OPEN</button>
+</div>
 </div>
 
 </div>
-<footer>Created by:HENRY-X</footer>
+
+<footer>Created By HENRY-X</footer>
+
 <script>
-function toggleOverlay(card){card.classList.toggle('active');}
+
+function toggleOverlay(card){
+card.classList.toggle("active")
+}
+
+function toggleDrawer(){
+document.getElementById("drawer").classList.toggle("active")
+}
+
 </script>
+
 </body>
 </html>
 """
+
 
 # ---------------- TOKEN CHECKER ----------------
 TOKEN_HTML = """
