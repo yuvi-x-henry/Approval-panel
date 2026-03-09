@@ -27,39 +27,137 @@ CONVOX_HTML = '''
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CONVO'X</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
-body{font-family:Poppins,sans-serif;background:linear-gradient(135deg,#ff00cc,#7a00ff);margin:0;padding:0;color:white;display:flex;flex-direction:column;align-items:center;min-height:100vh;}
-h2{text-align:center;font-size:26px;margin:25px 0;color:#fff;letter-spacing:2px;text-shadow:0 0 15px rgba(255,255,255,0.8);}
-.card-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:25px;width:90%;max-width:800px;margin:0 auto;}
-.card{background:rgba(0,0,0,0.5);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.15);border-radius:20px;box-shadow:0 8px 25px rgba(0,0,0,0.5);overflow:hidden;text-align:center;transition:transform 0.35s ease, box-shadow 0.35s ease;padding-bottom:10px;}
-.card:hover{transform:scale(1.06);box-shadow:0 12px 35px rgba(255,0,255,0.4);}
-.card img{width:90%;height:180px;object-fit:cover;border-radius:15px;margin-top:15px;border:2px solid rgba(255,255,255,0.3);box-shadow:0 0 15px rgba(255,0,255,0.3);transition: transform 0.4s ease, box-shadow 0.4s ease;}
-.card img:hover{transform:scale(1.05);box-shadow:0 0 25px rgba(255,0,255,0.5);}
-.card h1{font-size:14px;margin:15px;color:#f0f0f0;font-weight:400;line-height:1.5;}
-.button-34{background:linear-gradient(135deg,#ff66cc,#a855f7);color:#fff;border-radius:999px;font-weight:600;padding:10px 22px;cursor:pointer;border:none;margin-bottom:20px;box-shadow:0 4px 15px rgba(255,0,255,0.5);transition:all 0.3s ease;}
-.button-34:hover{background:linear-gradient(135deg,#ff8ae2,#b87bff);transform:scale(1.05);}
-.footer{margin-top:40px;font-size:14px;text-align:center;opacity:0.8;}
-.footer a{color:#ffd6ff;text-decoration:none;font-weight:500;}
+
+body{
+font-family:Poppins,sans-serif;
+background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+margin:0;
+padding:0;
+color:white;
+display:flex;
+flex-direction:column;
+align-items:center;
+min-height:100vh;
+}
+
+h2{
+text-align:center;
+font-size:34px;
+margin-top:30px;
+letter-spacing:3px;
+color:#fff;
+text-shadow:0 0 20px #ff00ff;
+}
+
+.card-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:35px;
+width:90%;
+max-width:900px;
+margin-top:50px;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(12px);
+border:1px solid rgba(255,255,255,0.2);
+border-radius:20px;
+padding:20px;
+text-align:center;
+transition:0.4s;
+box-shadow:0 0 25px rgba(0,0,0,0.6);
+}
+
+.card:hover{
+transform:translateY(-10px) scale(1.05);
+box-shadow:0 0 30px #ff00ff;
+}
+
+.card img{
+width:100%;
+height:180px;
+object-fit:cover;
+border-radius:15px;
+margin-bottom:15px;
+box-shadow:0 0 15px rgba(255,0,255,0.4);
+}
+
+.card h1{
+font-size:16px;
+margin-bottom:20px;
+color:#eee;
+}
+
+.button-34{
+
+background:linear-gradient(135deg,#ff00cc,#7a00ff);
+border:none;
+color:white;
+padding:12px 25px;
+font-size:14px;
+font-weight:600;
+border-radius:999px;
+cursor:pointer;
+box-shadow:0 0 15px rgba(255,0,255,0.7);
+transition:0.3s;
+}
+
+.button-34:hover{
+transform:scale(1.1);
+box-shadow:0 0 25px #ff00ff;
+}
+
+.footer{
+margin-top:50px;
+font-size:14px;
+opacity:0.8;
+}
+
+.footer a{
+color:#ff9cff;
+text-decoration:none;
+font-weight:bold;
+}
+
 </style>
 </head>
+
 <body>
-<h2>CONVO'X</h2>
+
+<h2>🔥 CONVO'X LEGEND PANEL 🔥</h2>
+
 <div class="card-container">
-    <div class="card">
-        <img src="https://i.imgur.com/Dlr54N2.jpeg" alt="Card Image">
-        <h1>CONVO'X Tool By Henry</h1>
-        <button class="button-34" onclick="window.location.href='/login'">⊲ OPEN ⊳</button>
-    </div>
-    <div class="card">
-        <img src="https://i.imgur.com/Dlr54N2.jpeg" alt="Card Image">
-        <h1>CONVO'X-2 Tool By Henry</h1>
-        <button class="button-34" onclick="window.location.href='/login'">⊲ OPEN ⊳</button>
-    </div>
+
+<div class="card">
+<img src="https://i.imgur.com/Dlr54N2.jpeg">
+<h1>CONVO'X VIP Tool By Henry</h1>
+
+<!-- Yaha apna link daalna -->
+<button class="button-34" onclick="window.open('https://YOUR-LINK-HERE.com')">OPEN</button>
+
 </div>
+
+
+<div class="card">
+<img src="https://i.imgur.com/Dlr54N2.jpeg">
+<h1>CONVO'X PRIVATE PANEL</h1>
+
+<!-- Ye login panel kholega -->
+<button class="button-34" onclick="window.location.href='/login'">LOGIN PANEL</button>
+
+</div>
+
+</div>
+
 <div class="footer">
-    <p>© 2025 Henry Badmash. All Rights Reserved. | Made with 💖 by <a href="#">HENRY</a></p>
+© 2025 Henry Badmash | LEGEND SERVER
 </div>
+
 </body>
 </html>
 '''
