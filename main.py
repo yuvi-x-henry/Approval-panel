@@ -301,4 +301,7 @@ def logout():
     session.clear()
     return redirect("/")
 
-app = app
+# ---------------- RUN ----------------
+
+if __name__ == "__main__":
+    app.run(debug=True)
