@@ -15,29 +15,235 @@ HTML_DASHBOARD = """
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HENRY-X Panel</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Italic&display=swap');
-*{margin:0;padding:0;box-sizing:border-box;}
-body{background:radial-gradient(circle,#050505,#000);display:flex;flex-direction:column;align-items:center;min-height:100vh;padding:2rem;color:#fff;}
-header{text-align:center;margin-bottom:2rem;}
-header h1{font-size:2.5rem;font-weight:bold;letter-spacing:2px;font-family:sans-serif;color:white;}
-.container{display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;width:100%;}
-.card{position:relative;width:360px;height:460px;border-radius:18px;overflow:hidden;background:#111;cursor:pointer;box-shadow:0 0 25px rgba(255,0,0,0.2);transition:transform 0.3s ease;}
-.card:hover{transform:scale(1.03);}
-.card video{width:100%;height:100%;object-fit:cover;filter:brightness(0.85);}
-.overlay{position:absolute;bottom:-100%;left:0;width:100%;height:100%;background:linear-gradient(to top, rgba(255,0,0,0.55), transparent 70%);display:flex;flex-direction:column;justify-content:flex-end;padding:25px;opacity:0;transition:all 0.4s ease-in-out;z-index:2;}
-.card.active .overlay{bottom:0;opacity:1;}
-.overlay h3{font-family:"Russo One",sans-serif;font-size:28px;margin-bottom:10px;text-shadow:0 0 15px #ff0033,0 0 25px rgba(255,0,0,0.7);color:#fff;letter-spacing:1px;animation:slideUp 0.4s ease forwards;}
-.overlay p{font-family:'Fira Sans Italic',sans-serif;font-size:15px;color:#f2f2f2;margin-bottom:15px;opacity:0;animation:fadeIn 0.6s ease forwards;animation-delay:0.2s;}
-.open-btn{align-self:center;background:linear-gradient(45deg,#ff0040,#ff1a66);border:none;padding:10px 25px;border-radius:25px;font-size:16px;color:white;cursor:pointer;font-family:"Russo One",sans-serif;box-shadow:0 0 15px rgba(255,0,0,0.7);transition:all 0.3s ease;opacity:0;animation:fadeIn 0.6s ease forwards;animation-delay:0.4s;}
-.open-btn:hover{transform:scale(1.1);box-shadow:0 0 25px rgba(255,0,0,1);}
-@keyframes slideUp{from{transform:translateY(30px);opacity:0;}to{transform:translateY(0);opacity:1;}}
-@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
-footer{margin-top:2rem;font-size:1rem;font-family:sans-serif;color:#888;text-align:center;}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background: radial-gradient(circle at top,#0a0a0a,#000);
+font-family:'Poppins',sans-serif;
+color:white;
+display:flex;
+flex-direction:column;
+align-items:center;
+min-height:100vh;
+padding:40px 20px;
+overflow-x:hidden;
+}
+
+/* TITLE */
+
+header h1{
+font-family:'Orbitron',sans-serif;
+font-size:3rem;
+letter-spacing:4px;
+background:linear-gradient(90deg,#ff0040,#ff6a00,#ff0040);
+background-size:300%;
+-webkit-background-clip:text;
+color:transparent;
+animation:glowMove 6s linear infinite;
+text-shadow:0 0 15px rgba(255,0,60,0.6);
+margin-bottom:40px;
+}
+
+@keyframes glowMove{
+0%{background-position:0%}
+100%{background-position:300%}
+}
+
+/* CONTAINER */
+
+.container{
+display:flex;
+flex-wrap:wrap;
+gap:35px;
+justify-content:center;
+width:100%;
+max-width:1400px;
+}
+
+/* CARD */
+
+.card{
+position:relative;
+width:360px;
+height:460px;
+border-radius:20px;
+overflow:hidden;
+cursor:pointer;
+
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(8px);
+
+border:1px solid rgba(255,255,255,0.08);
+
+box-shadow:
+0 0 20px rgba(255,0,80,0.15),
+0 0 40px rgba(255,0,80,0.08);
+
+transition:all .4s ease;
+}
+
+.card:hover{
+transform:translateY(-10px) scale(1.04);
+box-shadow:
+0 0 35px rgba(255,0,80,0.4),
+0 0 70px rgba(255,0,80,0.2);
+}
+
+/* VIDEO */
+
+.card video{
+width:100%;
+height:100%;
+object-fit:cover;
+filter:brightness(.8);
+transition:.4s;
+}
+
+.card:hover video{
+filter:brightness(.6);
+transform:scale(1.05);
+}
+
+/* OVERLAY */
+
+.overlay{
+position:absolute;
+bottom:-100%;
+left:0;
+width:100%;
+height:100%;
+
+background:linear-gradient(
+to top,
+rgba(0,0,0,0.95),
+rgba(255,0,80,0.45),
+transparent 70%
+);
+
+display:flex;
+flex-direction:column;
+justify-content:flex-end;
+padding:30px;
+
+opacity:0;
+transition:all .45s ease;
+}
+
+.card.active .overlay{
+bottom:0;
+opacity:1;
+}
+
+/* TITLE */
+
+.overlay h3{
+font-family:'Orbitron',sans-serif;
+font-size:28px;
+margin-bottom:10px;
+color:white;
+
+text-shadow:
+0 0 10px #ff0040,
+0 0 25px #ff0040;
+
+animation:slideUp .4s ease forwards;
+}
+
+/* TEXT */
+
+.overlay p{
+font-size:15px;
+color:#ddd;
+margin-bottom:20px;
+
+opacity:0;
+animation:fadeIn .6s forwards;
+animation-delay:.2s;
+}
+
+/* BUTTON */
+
+.open-btn{
+
+align-self:center;
+
+background:linear-gradient(45deg,#ff0040,#ff4d6d);
+
+border:none;
+
+padding:12px 28px;
+
+border-radius:30px;
+
+font-size:15px;
+
+color:white;
+
+font-family:'Orbitron',sans-serif;
+
+cursor:pointer;
+
+box-shadow:
+0 0 15px rgba(255,0,80,.7);
+
+transition:.35s;
+
+opacity:0;
+
+animation:fadeIn .6s forwards;
+animation-delay:.4s;
+}
+
+.open-btn:hover{
+
+transform:scale(1.12);
+
+box-shadow:
+0 0 25px #ff0040,
+0 0 45px #ff0040;
+
+background:linear-gradient(45deg,#ff1a5e,#ff0040);
+}
+
+/* ANIMATIONS */
+
+@keyframes slideUp{
+from{transform:translateY(40px);opacity:0;}
+to{transform:translateY(0);opacity:1;}
+}
+
+@keyframes fadeIn{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+/* FOOTER */
+
+footer{
+margin-top:40px;
+color:#888;
+font-size:14px;
+letter-spacing:1px;
+}
+
 </style>
 </head>
+
 <body>
-<header><h1>HENRY-X</h1></header>
+
+<header>
+<h1>HENRY-X CONTROL</h1>
+</header>
+
 <div class="container">
 
 <!-- Card 1 -->
@@ -89,13 +295,27 @@ footer{margin-top:2rem;font-size:1rem;font-family:sans-serif;color:#888;text-ali
 </div>
 
 </div>
-<footer>Created by:HENRY-X</footer>
+
+<footer> Created By HENRY-X </footer>
+
 <script>
-function toggleOverlay(card){card.classList.toggle('active');}
+
+function toggleOverlay(card){
+
+document.querySelectorAll(".card").forEach(c=>{
+if(c!==card) c.classList.remove("active")
+})
+
+card.classList.toggle("active")
+
+}
+
 </script>
+
 </body>
 </html>
 """
+
 
 # ---------------- TOKEN CHECKER ----------------
 TOKEN_HTML = """
