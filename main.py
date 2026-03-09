@@ -112,7 +112,7 @@ def home():
 
 <div class="panel">
 
-<img src="https://i.imgur.com/5rIeORl.jpeg">
+<img src="https://raw.githubusercontent.com/yuvi-x-henry/Pf/refs/heads/main/e632c4ddfeae7def55bc5f43688e8cf4.jpg">
 
 <div class="title">COOKIE-X-X</div>
 
@@ -167,7 +167,7 @@ def login():
 
 <div class="panel">
 
-<img src="https://i.imgur.com/5rIeORl.jpeg">
+<img src="https://raw.githubusercontent.com/yuvi-x-henry/Pf/refs/heads/main/e632c4ddfeae7def55bc5f43688e8cf4.jpg">
 
 <div class="title">LOGIN</div>
 
@@ -279,7 +279,7 @@ def dashboard():
 
 <div class="panel">
 
-<img src="https://i.imgur.com/BhkciB4.jpeg">
+<img src="https://raw.githubusercontent.com/yuvi-x-henry/Pf/refs/heads/main/e632c4ddfeae7def55bc5f43688e8cf4.jpg">
 
 <div class="title">WELCOME {user}</div>
 
