@@ -63,65 +63,48 @@ margin-top:50px;
 }
 
 .card{
-background:rgba(255,255,255,0.05);
-backdrop-filter:blur(12px);
-border:1px solid rgba(255,255,255,0.2);
-border-radius:20px;
-padding:20px;
+background:rgba(255,255,255,0.06);
+backdrop-filter:blur(14px);
+border:1px solid rgba(255,255,255,0.25);
+border-radius:22px;
+padding:22px;
 text-align:center;
 transition:0.4s;
-box-shadow:0 0 25px rgba(0,0,0,0.6);
+box-shadow:0 0 25px rgba(0,0,0,0.7);
+position:relative;
+overflow:hidden;
 }
 
 .card:hover{
-transform:translateY(-10px) scale(1.05);
-box-shadow:0 0 30px #ff00ff;
+transform:translateY(-12px) scale(1.06);
+box-shadow:0 0 35px #ff00ff;
 }
 
-.card img{
-width:100%;
-height:180px;
-object-fit:cover;
-border-radius:15px;
-margin-bottom:15px;
-box-shadow:0 0 15px rgba(255,0,255,0.4);
-}
-
-.card h1{
-font-size:16px;
-margin-bottom:20px;
-color:#eee;
-}
-
-.button-34{
-
-background:linear-gradient(135deg,#ff00cc,#7a00ff);
-border:none;
-color:white;
-padding:12px 25px;
-font-size:14px;
+.status{
+position:absolute;
+top:12px;
+right:15px;
+background:#00ff6a;
+color:black;
+font-size:12px;
+padding:4px 10px;
+border-radius:50px;
 font-weight:600;
-border-radius:999px;
-cursor:pointer;
-box-shadow:0 0 15px rgba(255,0,255,0.7);
-transition:0.3s;
+box-shadow:0 0 10px #00ff6a;
 }
 
-.button-34:hover{
-transform:scale(1.1);
-box-shadow:0 0 25px #ff00ff;
+.speed{
+margin-top:8px;
+font-size:13px;
+color:#ffb3ff;
+font-weight:500;
+letter-spacing:1px;
 }
 
-.footer{
-margin-top:50px;
-font-size:14px;
-opacity:0.8;
-}
-
-.footer a{
-color:#ff9cff;
-text-decoration:none;
-font-weight:bold;
+.bio{
+font-size:13px;
+color:#ddd;
+margin-bottom:10px;
 }
 
 </style>
@@ -134,14 +117,20 @@ font-weight:bold;
 <div class="card-container">
 
 <div class="card">
+
+<div class="status">🟢 ONLINE</div>
+
 <img src="https://raw.githubusercontent.com/yuvi-x-henry/Pf/refs/heads/main/b45a917fb1a7d431a648ceb17c4df71e.jpg">
-<h1>CONVO'X VIP Tool By Henry</h1>
+
+<h1>COOKIES'X</h1>
+
+<div class="speed">⚡ Run Speed : 0.8s</div>
+
 <p class="bio">
-Fast Facebook Cookie automation Tool <br>
-For / All / VIP / Users !!<br>
+Fast Facebook Cookie Automation Tool<br>
+For All VIP Users !!
 </p>
 
-<!-- Yaha apna link daalna -->
 <button class="button-34" onclick="window.open('https://YOUR-LINK-HERE.com')">OPEN</button>
 
 </div>
@@ -149,7 +138,7 @@ For / All / VIP / Users !!<br>
 
 <div class="card">
 <img src="https://raw.githubusercontent.com/yuvi-x-henry/Pf/refs/heads/main/b45a917fb1a7d431a648ceb17c4df71e.jpg">
-<h1>CONVO'X PRIVATE PANEL</h1>
+<h1>CONVO'X</h1>
 <p class="bio">
 Vip Login Page + Token CONVO'X by Henry <br>
 Multi Token Support !!<br>
