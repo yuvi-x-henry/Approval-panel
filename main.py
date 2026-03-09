@@ -80,6 +80,16 @@ transform:translateY(-12px) scale(1.06);
 box-shadow:0 0 35px #ff00ff;
 }
 
+.card img{
+width:100%;
+height:auto;
+max-height:420px;
+object-fit:contain;
+border-radius:16px;
+margin-bottom:18px;
+box-shadow:0 0 20px rgba(255,0,255,0.35);
+}
+
 .status{
 position:absolute;
 top:12px;
@@ -105,6 +115,29 @@ letter-spacing:1px;
 font-size:13px;
 color:#ddd;
 margin-bottom:10px;
+}
+
+.button-34{
+
+background:linear-gradient(135deg,#ff00cc,#7a00ff);
+border:none;
+color:white;
+padding:15px 40px;
+font-size:16px;
+font-weight:600;
+border-radius:999px;
+cursor:pointer;
+box-shadow:0 0 20px rgba(255,0,255,0.7);
+transition:0.35s;
+margin-top:10px;
+
+}
+
+.button-34:hover{
+
+transform:scale(1.12);
+box-shadow:0 0 35px #ff00ff;
+
 }
 
 </style>
