@@ -528,13 +528,13 @@ h2::after {
     <div class="card-image-wrapper">
       <img src="https://raw.githubusercontent.com/yuvi-x-henry/Pf/refs/heads/main/7bc21a7c678acafd78cfff47b2d14668.jpg" alt="COOKIES'X">
     </div>
-    <h1>COOKIES'X</h1>
+    <h1>HENRY'X-BOT</h1>
     <div class="speed">
       ⚡ Run Speed : <span class="speed-value">0.8s</span>
     </div>
     <div class="card-divider"></div>
     <p class="bio">
-      <strong>Fast Facebook Cookie Automation</strong><br>
+      <strong>This Bot Is Made By Henry. Made For Fun and Fyting User This Is A Fyter & Masti Bot.</strong><br>
       Engine — For All VIP Users
     </p>
     <div class="tags">
