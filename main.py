@@ -518,7 +518,7 @@ h2::after {
 
 <div class="card-container">
 
-  <!-- Card 1: COOKIES'X -->
+  <!-- Card 1: BOT-X -->
   <div class="card">
     <div class="card-glow"></div>
     <div class="status">
@@ -542,7 +542,7 @@ h2::after {
       <span class="tag">Cookies</span>
       <span class="tag">VIP</span>
     </div>
-    <button class="button-34" onclick="window.open('https://YOUR-LINK-HERE.com')">
+    <button class="button-34" onclick="window.open('https://magic-roselin-farman-24ca84cd.koyeb.app/')">
       <span class="button-arrow">▸</span>
       <span>Launch</span>
     </button>
