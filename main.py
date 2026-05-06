@@ -542,7 +542,7 @@ h2::after {
       <span class="tag">Cookies</span>
       <span class="tag">VIP</span>
     </div>
-    <button class="button-34" onclick="window.open('https://magic-roselin-farman-24ca84cd.koyeb.app/')">
+    <button class="button-34" onclick="window.open('http://51.75.118.17:20058/')">
       <span class="button-arrow">▸</span>
       <span>Launch</span>
     </button>
