@@ -26,8 +26,8 @@ CONVOX_HTML = '''
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CONVO'X MODERNIZE</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+<title>CONVO'X | SLEEK</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Orbitron:wght@700&display=swap" rel="stylesheet">
 <style>
 * {
   margin: 0;
@@ -36,46 +36,47 @@ CONVOX_HTML = '''
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  background: #0a0a0a; /* Dark background to make cards pop */
-  background: linear-gradient(160deg, #1a0a1f 0%, #000 100%);
+  background: #050505;
+  background: radial-gradient(circle at center, #1a0a1f 0%, #050505 100%);
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
 }
 
-/* Container for Full Screen Cards */
 .main-wrapper {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 40px;
   justify-content: center;
-  padding: 40px 20px;
+  padding: 20px;
   width: 100%;
-  max-width: 1400px;
 }
 
-/* The Card Unit */
+/* Card Container */
 .mega-card {
-  width: 400px; /* Bada size */
-  position: relative;
-  transition: transform 0.4s ease;
+  width: 420px;
   cursor: pointer;
+  position: relative;
+  transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+  user-select: none;
 }
 
-.mega-card:hover {
-  transform: translateY(-15px);
+/* Single Click Zoom Effect */
+.mega-card.zoomed {
+  transform: scale(1.05);
+  z-index: 10;
 }
 
-/* Image Card (The actual top part) */
+/* Image Part */
 .image-card {
   width: 100%;
-  height: 450px; /* Image ki height */
-  border-radius: 30px 30px 0 0; /* Sirf upar se round */
+  height: 500px;
+  /* Corners: Halka rounded (nok wala feel) */
+  border-radius: 12px 12px 0 0; 
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   border: 1px solid rgba(255, 255, 255, 0.1);
   position: relative;
 }
@@ -85,85 +86,56 @@ body {
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.8s ease;
 }
 
-/* Attached Info Panel (Satik Panel) */
+.mega-card.zoomed img {
+  transform: scale(1.1);
+}
+
+/* Satik Bio Panel */
 .info-panel {
   width: 100%;
-  background: rgba(255, 255, 255, 0.07);
-  backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-top: none; /* Image se judne ke liye */
-  border-radius: 0 0 30px 30px; /* Sirf niche se round */
-  padding: 25px;
+  border-top: none;
+  /* Corners: Niche se bhi halka rounded */
+  border-radius: 0 0 12px 12px;
+  padding: 30px 20px;
   text-align: center;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
 .info-panel h1 {
   font-family: 'Orbitron', sans-serif;
-  font-size: 24px;
+  font-size: 26px;
   color: #fff;
-  letter-spacing: 3px;
-  margin-bottom: 10px;
+  letter-spacing: 4px;
+  margin-bottom: 12px;
   text-transform: uppercase;
-  background: linear-gradient(90deg, #fff, #ff1493);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
 }
 
 .info-panel p {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.5);
   font-size: 14px;
   line-height: 1.6;
-  margin-bottom: 20px;
+  font-weight: 300;
 }
 
-/* Status Indicator on Image */
-.status-tag {
+/* Instruction Text (Optional - can be removed) */
+.hint {
   position: absolute;
-  top: 20px;
-  right: 20px;
-  background: rgba(0, 255, 136, 0.2);
-  padding: 5px 15px;
-  border-radius: 20px;
-  color: #00ff88;
+  bottom: -30px;
+  width: 100%;
+  text-align: center;
+  color: rgba(255,255,255,0.2);
   font-size: 10px;
-  font-weight: bold;
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(0, 255, 136, 0.4);
-}
-
-/* Styled Button */
-.action-btn {
-  background: linear-gradient(135deg, #ff00cc, #7a00ff);
-  color: white;
-  border: none;
-  padding: 12px 35px;
-  border-radius: 50px;
-  font-weight: 600;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  cursor: pointer;
-  transition: 0.3s;
-  box-shadow: 0 5px 15px rgba(255, 0, 204, 0.3);
 }
 
-.action-btn:hover {
-  box-shadow: 0 8px 25px rgba(255, 0, 204, 0.6);
-  transform: scale(1.05);
-}
-
-/* Responsive */
-@media (max-width: 450px) {
-  .mega-card {
-    width: 100%;
-  }
-  .image-card {
-    height: 350px;
-  }
-}
 </style>
 </head>
 <body>
@@ -171,34 +143,53 @@ body {
 <div class="main-wrapper">
 
   <!-- CARD 1 -->
-  <div class="mega-card">
+  <div class="mega-card" 
+       onclick="handleCardClick(this)" 
+       ondblclick="window.open('http://51.75.118.17:20058/', '_blank')">
     <div class="image-card">
-      <div class="status-tag">● ONLINE</div>
-      <!-- APNI IMAGE YAHAN LAGAYEIN -->
-      <img src="https://raw.githubusercontent.com/yuvi-x-henry/Pf/refs/heads/main/7bc21a7c678acafd78cfff47b2d14668.jpg" alt="HENRY BOT">
+      <img src="https://raw.githubusercontent.com/yuvi-x-henry/Pf/refs/heads/main/7bc21a7c678acafd78cfff47b2d14668.jpg" alt="HENRY'X BOT">
     </div>
     <div class="info-panel">
       <h1>HENRY'X-BOT</h1>
-      <p>This is a Premium Fighter & Masti Bot made by Henry. Optimized for VIP users with extreme run speed and automation.</p>
-      <button class="action-btn" onclick="window.open('http://51.75.118.17:20058/')">Launch Bot</button>
+      <p>PREMIUM FIGHTER ENGINE. BUILT FOR MAXIMUM SPEED AND VIP AUTOMATION. NO LIMITS.</p>
     </div>
+    <div class="hint">Tap once to focus • Double tap to launch</div>
   </div>
 
   <!-- CARD 2 -->
-  <div class="mega-card">
+  <div class="mega-card" 
+       onclick="handleCardClick(this)" 
+       ondblclick="window.location.href='/login'">
     <div class="image-card">
-      <div class="status-tag">● ACTIVE</div>
-      <!-- APNI IMAGE YAHAN LAGAYEIN -->
-      <img src="https://raw.githubusercontent.com/yuvi-x-henry/Pf/refs/heads/main/7bc21a7c678acafd78cfff47b2d14668.jpg" alt="CONVO'X">
+      <img src="https://raw.githubusercontent.com/yuvi-x-henry/Pf/refs/heads/main/7bc21a7c678acafd78cfff47b2d14668.jpg" alt="CONVO'X PANEL">
     </div>
     <div class="info-panel">
-      <h1>CONVO'X PANEL</h1>
-      <p>Full Access VIP Login and Multi-Token Control Panel. Manage your sessions with high-grade security and speed.</p>
-      <button class="action-btn" onclick="window.location.href='/login'">Open Panel</button>
+      <h1>CONVO'X</h1>
+      <p>MULTI-TOKEN ACCESS PANEL. SECURE LOGIN GATEWAY FOR ALL PREMIUM CONVO TOOLS.</p>
     </div>
+    <div class="hint">Tap once to focus • Double tap to launch</div>
   </div>
 
 </div>
+
+<script>
+// Click handler for Zoom effect
+function handleCardClick(card) {
+    // Remove zoom from other cards
+    document.querySelectorAll('.mega-card').forEach(c => {
+        if(c !== card) c.classList.remove('zoomed');
+    });
+    // Toggle zoom on current card
+    card.classList.toggle('zoomed');
+}
+
+// Close zoom when clicking outside
+document.addEventListener('click', function(e) {
+    if (!e.target.closest('.mega-card')) {
+        document.querySelectorAll('.mega-card').forEach(c => c.classList.remove('zoomed'));
+    }
+});
+</script>
 
 </body>
 </html>
