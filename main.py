@@ -35,7 +35,7 @@ CONVOX_HTML = '''
 }
 
 body {
-  background: back;
+  background: gray;
   background: black;
   min-height: 100vh;
   display: flex;
