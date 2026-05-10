@@ -26,8 +26,8 @@ CONVOX_HTML = '''
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CONVO'X × HENRY'X</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+<title>CONVO'X MODERNIZE</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
 <style>
 * {
   margin: 0;
@@ -37,551 +37,167 @@ CONVOX_HTML = '''
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(160deg, #1a0a1f 0%, #2d0a3e 15%, #4a0e5c 35%, #7a1a8a 55%, #a020c0 70%, #d020a0 85%, #ff1493 100%);
-  margin: 0;
-  padding: 0;
+  background: #0a0a0a; /* Dark background to make cards pop */
+  background: linear-gradient(160deg, #1a0a1f 0%, #000 100%);
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  color: #fff;
   overflow-x: hidden;
-  position: relative;
 }
 
-/* Static decorative elements - no animation */
-body::before {
-  content: '';
-  position: fixed;
-  width: 500px;
-  height: 500px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,0,255,0.12) 0%, transparent 70%);
-  top: -100px;
-  right: -100px;
-  pointer-events: none;
-  z-index: 0;
-}
-
-body::after {
-  content: '';
-  position: fixed;
-  width: 400px;
-  height: 400px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,20,147,0.10) 0%, transparent 70%);
-  bottom: -80px;
-  left: -80px;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Top accent line */
-.top-accent {
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, transparent, #ff00ff, #ff1493, #ff00ff, transparent);
-  box-shadow: 0 0 30px rgba(255,0,255,0.6);
-  position: relative;
-  z-index: 2;
-}
-
-/* Header */
-.header {
-  width: 100%;
-  padding: 25px 0 10px;
-  text-align: center;
-  position: relative;
-  z-index: 2;
-}
-
-.header-badge {
-  display: inline-block;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.12);
-  backdrop-filter: blur(10px);
-  padding: 6px 18px;
-  border-radius: 50px;
-  font-size: 10px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.5);
-  margin-bottom: 12px;
-}
-
-h2 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 52px;
-  font-weight: 900;
-  letter-spacing: 6px;
-  background: linear-gradient(135deg, #fff, #ffb3ff, #ff69b4, #ff00ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-shadow: none;
-  filter: drop-shadow(0 0 40px rgba(255,0,255,0.4));
-  position: relative;
-  display: inline-block;
-}
-
-h2::after {
-  content: '✦';
-  position: absolute;
-  font-size: 14px;
-  top: -8px;
-  right: -30px;
-  -webkit-text-fill-color: #ff69b4;
-  filter: drop-shadow(0 0 10px #ff00ff);
-}
-
-.subtitle {
-  font-size: 12px;
-  letter-spacing: 8px;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.3);
-  margin-top: 4px;
-  font-weight: 300;
-}
-
-/* Stats Bar */
-.stats-bar {
+/* Container for Full Screen Cards */
+.main-wrapper {
   display: flex;
+  flex-wrap: wrap;
   gap: 30px;
   justify-content: center;
-  margin-top: 20px;
-  flex-wrap: wrap;
+  padding: 40px 20px;
+  width: 100%;
+  max-width: 1400px;
+}
+
+/* The Card Unit */
+.mega-card {
+  width: 400px; /* Bada size */
   position: relative;
-  z-index: 2;
+  transition: transform 0.4s ease;
+  cursor: pointer;
 }
 
-.stat-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.06);
-  padding: 6px 16px;
-  border-radius: 50px;
-  font-size: 11px;
-  color: rgba(255,255,255,0.5);
-  letter-spacing: 1px;
+.mega-card:hover {
+  transform: translateY(-15px);
 }
 
-.stat-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #00ff88;
-  box-shadow: 0 0 8px #00ff88;
-}
-
-/* Card Container */
-.card-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 40px;
-  width: 90%;
-  max-width: 860px;
-  margin: 40px auto 50px;
-  position: relative;
-  z-index: 2;
-}
-
-/* Card */
-.card {
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255,255,255,0.10);
-  border-radius: 26px;
-  padding: 28px 24px 30px;
-  text-align: center;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  position: relative;
+/* Image Card (The actual top part) */
+.image-card {
+  width: 100%;
+  height: 450px; /* Image ki height */
+  border-radius: 30px 30px 0 0; /* Sirf upar se round */
   overflow: hidden;
-  box-shadow: 
-    0 8px 32px rgba(0,0,0,0.4),
-    inset 0 1px 0 rgba(255,255,255,0.08);
-}
-
-/* Card glass edge glow */
-.card::before {
-  content: '';
-  position: absolute;
-  top: -1px;
-  left: 20%;
-  right: 20%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-}
-
-/* Card inner glow */
-.card-glow {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle, rgba(255,0,255,0.06) 0%, transparent 70%);
-  pointer-events: none;
-  border-radius: 50%;
-}
-
-.card:hover {
-  transform: translateY(-14px) scale(1.03);
-  border-color: rgba(255,0,255,0.3);
-  box-shadow: 
-    0 20px 60px rgba(0,0,0,0.5),
-    0 0 40px rgba(255,0,255,0.15),
-    inset 0 1px 0 rgba(255,255,255,0.12);
-}
-
-/* Status */
-.status {
-  position: absolute;
-  top: 16px;
-  right: 18px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(0,255,100,0.10);
-  border: 1px solid rgba(0,255,100,0.25);
-  padding: 4px 12px 4px 8px;
-  border-radius: 50px;
-  font-size: 10px;
-  font-weight: 600;
-  color: #00ff88;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  box-shadow: 0 0 20px rgba(0,255,100,0.08);
-}
-
-.status-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #00ff88;
-  box-shadow: 0 0 10px #00ff88;
-}
-
-/* Card Image */
-.card-image-wrapper {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   position: relative;
-  width: 130px;
-  height: 130px;
-  margin: 10px auto 18px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 2px solid rgba(255,255,255,0.10);
-  box-shadow: 0 0 30px rgba(255,0,255,0.15);
-  transition: all 0.4s ease;
 }
 
-.card:hover .card-image-wrapper {
-  border-color: rgba(255,0,255,0.3);
-  box-shadow: 0 0 50px rgba(255,0,255,0.25);
-}
-
-.card-image-wrapper img {
+.image-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
-/* Card Title */
-.card h1 {
+/* Attached Info Panel (Satik Panel) */
+.info-panel {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: none; /* Image se judne ke liye */
+  border-radius: 0 0 30px 30px; /* Sirf niche se round */
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.info-panel h1 {
   font-family: 'Orbitron', sans-serif;
   font-size: 24px;
-  font-weight: 700;
+  color: #fff;
   letter-spacing: 3px;
-  background: linear-gradient(135deg, #fff 30%, #ffb3ff, #ff69b4);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #fff, #ff1493);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 4px;
 }
 
-/* Speed */
-.speed {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 11px;
-  color: rgba(255,255,255,0.35);
-  letter-spacing: 2px;
-  font-weight: 400;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.05);
-  padding: 3px 12px;
-  border-radius: 50px;
-  margin-bottom: 12px;
-}
-
-.speed-value {
-  color: #ff69b4;
-  font-weight: 600;
-}
-
-/* Divider */
-.card-divider {
-  width: 40%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.10), transparent);
-  margin: 10px auto;
-}
-
-/* Bio */
-.bio {
-  font-size: 13px;
-  color: rgba(255,255,255,0.55);
-  line-height: 1.7;
-  margin: 10px 0 16px;
-  font-weight: 300;
-  letter-spacing: 0.3px;
-}
-
-.bio strong {
-  color: rgba(255,255,255,0.8);
-  font-weight: 500;
-}
-
-/* Tags */
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  justify-content: center;
-  margin: 10px 0 16px;
-}
-
-.tag {
-  font-size: 9px;
-  padding: 3px 10px;
-  border-radius: 50px;
-  background: rgba(255,0,255,0.08);
-  border: 1px solid rgba(255,0,255,0.12);
-  color: rgba(255,255,255,0.40);
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  font-weight: 500;
-}
-
-/* Button */
-.button-34 {
-  position: relative;
-  background: linear-gradient(135deg, #ff00cc, #7a00ff);
-  border: none;
-  color: white;
-  padding: 14px 44px;
+.info-panel p {
+  color: rgba(255, 255, 255, 0.6);
   font-size: 14px;
-  font-weight: 600;
-  font-family: 'Poppins', sans-serif;
-  border-radius: 999px;
-  cursor: pointer;
-  box-shadow: 0 4px 25px rgba(255,0,255,0.35);
-  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  overflow: hidden;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  line-height: 1.6;
+  margin-bottom: 20px;
 }
 
-.button-34::before {
-  content: '';
+/* Status Indicator on Image */
+.status-tag {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, #ff1493, #a020f0);
-  opacity: 0;
-  transition: opacity 0.35s ease;
-  border-radius: 999px;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 255, 136, 0.2);
+  padding: 5px 15px;
+  border-radius: 20px;
+  color: #00ff88;
+  font-size: 10px;
+  font-weight: bold;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 255, 136, 0.4);
 }
 
-.button-34:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 8px 40px rgba(255,0,255,0.5);
+/* Styled Button */
+.action-btn {
+  background: linear-gradient(135deg, #ff00cc, #7a00ff);
+  color: white;
+  border: none;
+  padding: 12px 35px;
+  border-radius: 50px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 5px 15px rgba(255, 0, 204, 0.3);
 }
 
-.button-34:hover::before {
-  opacity: 1;
-}
-
-.button-34 span {
-  position: relative;
-  z-index: 1;
-}
-
-.button-arrow {
-  position: relative;
-  z-index: 1;
-  font-size: 16px;
-  transition: transform 0.3s ease;
-}
-
-.button-34:hover .button-arrow {
-  transform: translateX(4px);
-}
-
-/* Footer */
-.footer {
-  margin-top: auto;
-  padding: 30px 20px;
-  text-align: center;
-  font-size: 11px;
-  color: rgba(255,255,255,0.15);
-  letter-spacing: 2px;
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  border-top: 1px solid rgba(255,255,255,0.04);
-}
-
-.footer-heart {
-  color: #ff1493;
-  filter: drop-shadow(0 0 6px rgba(255,20,147,0.4));
+.action-btn:hover {
+  box-shadow: 0 8px 25px rgba(255, 0, 204, 0.6);
+  transform: scale(1.05);
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  h2 {
-    font-size: 32px;
-    letter-spacing: 4px;
+@media (max-width: 450px) {
+  .mega-card {
+    width: 100%;
   }
-  h2::after {
-    font-size: 10px;
-    right: -22px;
-    top: -4px;
-  }
-  .card-container {
-    grid-template-columns: 1fr;
-    gap: 30px;
-    width: 92%;
-  }
-  .card {
-    padding: 22px 18px 24px;
-  }
-  .card-image-wrapper {
-    width: 100px;
-    height: 100px;
-  }
-  .card h1 {
-    font-size: 20px;
-  }
-  .stats-bar {
-    gap: 12px;
-  }
-  .stat-item {
-    font-size: 9px;
-    padding: 4px 12px;
-  }
-}
-
-@media (max-width: 400px) {
-  h2 {
-    font-size: 26px;
-  }
-  .button-34 {
-    padding: 12px 30px;
-    font-size: 12px;
+  .image-card {
+    height: 350px;
   }
 }
 </style>
 </head>
 <body>
 
-<div class="top-accent"></div>
+<div class="main-wrapper">
 
-<div class="header">
-  <div class="header-badge">✦ Premium Edition ✦</div>
-  <h2>CONVO'X</h2>
-  <div class="subtitle">by Henry Badmash</div>
-</div>
-
-<div class="stats-bar">
-  <div class="stat-item">
-    <span class="stat-dot"></span>
-    System Online
-  </div>
-  <div class="stat-item">
-    ⚡ v14.2
-  </div>
-  <div class="stat-item">
-    👥 2.4k+ Users
-  </div>
-</div>
-
-<div class="card-container">
-
-  <!-- Card 1: BOT-X -->
-  <div class="card">
-    <div class="card-glow"></div>
-    <div class="status">
-      <span class="status-dot"></span>
-      Online
+  <!-- CARD 1 -->
+  <div class="mega-card">
+    <div class="image-card">
+      <div class="status-tag">● ONLINE</div>
+      <!-- APNI IMAGE YAHAN LAGAYEIN -->
+      <img src="https://raw.githubusercontent.com/yuvi-x-henry/Pf/refs/heads/main/7bc21a7c678acafd78cfff47b2d14668.jpg" alt="HENRY BOT">
     </div>
-    <div class="card-image-wrapper">
-      <img src="https://raw.githubusercontent.com/yuvi-x-henry/Pf/refs/heads/main/7bc21a7c678acafd78cfff47b2d14668.jpg" alt="COOKIES'X">
+    <div class="info-panel">
+      <h1>HENRY'X-BOT</h1>
+      <p>This is a Premium Fighter & Masti Bot made by Henry. Optimized for VIP users with extreme run speed and automation.</p>
+      <button class="action-btn" onclick="window.open('http://51.75.118.17:20058/')">Launch Bot</button>
     </div>
-    <h1>HENRY'X-BOT</h1>
-    <div class="speed">
-      ⚡ Run Speed : <span class="speed-value">0.8s</span>
-    </div>
-    <div class="card-divider"></div>
-    <p class="bio">
-      <strong>This Bot Is Made By Henry. Made For Fun and Fyting User This Is A Fyter & Masti Bot.</strong><br>
-      Engine — For All VIP Users
-    </p>
-    <div class="tags">
-      <span class="tag">Automation</span>
-      <span class="tag">Cookies</span>
-      <span class="tag">VIP</span>
-    </div>
-    <button class="button-34" onclick="window.open('http://51.75.118.17:20058/')">
-      <span class="button-arrow">▸</span>
-      <span>Launch</span>
-    </button>
   </div>
 
-  <!-- Card 2: CONVO'X -->
-  <div class="card">
-    <div class="card-glow"></div>
-    <div class="status">
-      <span class="status-dot"></span>
-      Online
-    </div>
-    <div class="card-image-wrapper">
+  <!-- CARD 2 -->
+  <div class="mega-card">
+    <div class="image-card">
+      <div class="status-tag">● ACTIVE</div>
+      <!-- APNI IMAGE YAHAN LAGAYEIN -->
       <img src="https://raw.githubusercontent.com/yuvi-x-henry/Pf/refs/heads/main/7bc21a7c678acafd78cfff47b2d14668.jpg" alt="CONVO'X">
     </div>
-    <h1>CONVO'X</h1>
-    <div class="speed">
-      ⚡ Run Speed : <span class="speed-value">0.8s</span>
+    <div class="info-panel">
+      <h1>CONVO'X PANEL</h1>
+      <p>Full Access VIP Login and Multi-Token Control Panel. Manage your sessions with high-grade security and speed.</p>
+      <button class="action-btn" onclick="window.location.href='/login'">Open Panel</button>
     </div>
-    <div class="card-divider"></div>
-    <p class="bio">
-      <strong>VIP Login + Token Panel</strong><br>
-      Multi-Token Support
-    </p>
-    <div class="tags">
-      <span class="tag">Login</span>
-      <span class="tag">Token</span>
-      <span class="tag">Multi-Support</span>
-    </div>
-    <button class="button-34" onclick="window.location.href='/login'">
-      <span class="button-arrow">▸</span>
-      <span>Login Panel</span>
-    </button>
   </div>
 
-</div>
-
-<div class="footer">
-  © 2025 Henry Badmash &nbsp;|&nbsp; Made with <span class="footer-heart">♥</span> For Fun &nbsp;|&nbsp; CONVO'X
 </div>
 
 </body>
