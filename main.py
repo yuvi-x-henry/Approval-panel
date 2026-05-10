@@ -35,8 +35,8 @@ CONVOX_HTML = '''
 }
 
 body {
-  background: #050505;
-  background: radial-gradient(circle at center, #1a0a1f 0%, #050505 100%);
+  background: back;
+  background: black;
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -146,13 +146,13 @@ body {
        onclick="handleCardClick(this)" 
        ondblclick="window.open('http://51.75.118.17:20058/', '_blank')">
     <div class="image-card">
-      <img src="https://raw.githubusercontent.com/yuvi-x-henry/Pf/refs/heads/main/7bc21a7c678acafd78cfff47b2d14668.jpg" alt="HENRY'X BOT">
+      <img src="https://i.imgur.com/RxaEuaF.jpeg" alt="HENRY'X BOT">
     </div>
     <div class="info-panel">
-      <h1>HENRY'X-BOT</h1>
-      <p>PREMIUM FIGHTER ENGINE. BUILT FOR MAXIMUM SPEED AND VIP AUTOMATION. NO LIMITS.</p>
+      <h1>HENRY'X 3.0</h1>
+      <p>Made For All Premium User Henry'x | Only Lagends Can Buy This Tool Henry Didn't Make People Famous, People Made Henry Famous||.</p>
     </div>
-    <div class="hint">Tap once to focus • Double tap to launch</div>
+    <div class="hint"></div>
   </div>
 
   <!-- CARD 2 -->
@@ -160,7 +160,7 @@ body {
        onclick="handleCardClick(this)" 
        ondblclick="window.location.href='/login'">
     <div class="image-card">
-      <img src="https://raw.githubusercontent.com/yuvi-x-henry/Pf/refs/heads/main/7bc21a7c678acafd78cfff47b2d14668.jpg" alt="CONVO'X PANEL">
+      <img src="https://i.imgur.com/iEukdvK.jpeg" alt="CONVO'X PANEL">
     </div>
     <div class="info-panel">
       <h1>CONVO'X</h1>
@@ -168,6 +168,21 @@ body {
     </div>
     <div class="hint">Tap once to focus • Double tap to launch</div>
   </div>
+
+    <!-- CARD 3 -->
+  <div class="mega-card" 
+       onclick="handleCardClick(this)" 
+       ondblclick="window.open('http://51.75.118.17:20058/', '_blank')">
+    <div class="image-card">
+      <img src="https://i.imgur.com/DMRv3d8.jpeg" alt="HENRY'X BOT">
+    </div>
+    <div class="info-panel">
+      <h1>HENRY'X-BOT</h1>
+      <p>PREMIUM FIGHTER ENGINE. BUILT FOR MAXIMUM SPEED AND VIP AUTOMATION. NO LIMITS.</p>
+    </div>
+    <div class="hint">Tap once to focus • Double tap to launch</div>
+  </div>
+  
 
 </div>
 
