@@ -150,7 +150,7 @@ body {
     </div>
     <div class="info-panel">
       <h1>HENRY'X 3.0</h1>
-      <p>Made For All Premium User Henry'x | Only Lagends Can Buy This Tool Henry Didn't Make People Famous, People Made Henry Famous||.</p>
+      <p>Made For All Premium User HENRY'X | Only Lagends Can Buy This Tool Henry Didn't Make People Famous, People Made Henry Famous| This Page Will Be Not Rip 24/7 + Multy Functional Supported.</p>
     </div>
     <div class="hint"></div>
   </div>
@@ -160,11 +160,11 @@ body {
        onclick="handleCardClick(this)" 
        ondblclick="window.location.href='/login'">
     <div class="image-card">
-      <img src="https://i.imgur.com/iEukdvK.jpeg" alt="CONVO'X PANEL">
+      <img src="https://i.imgur.com/iEukdvK.jpeg" alt="CONVO'X">
     </div>
     <div class="info-panel">
       <h1>CONVO'X</h1>
-      <p>MULTI-TOKEN ACCESS PANEL. SECURE LOGIN GATEWAY FOR ALL PREMIUM CONVO TOOLS.</p>
+      <p>This Is A Convo Toll With VIP Method| Multy User Access + safe Login And Server Running 24/7 Offline Milty Token + Multy Task Is The Made By HENRY'X.</p>
     </div>
     <div class="hint">Tap once to focus • Double tap to launch</div>
   </div>
@@ -172,13 +172,13 @@ body {
     <!-- CARD 3 -->
   <div class="mega-card" 
        onclick="handleCardClick(this)" 
-       ondblclick="window.open('http://51.75.118.17:20058/', '_blank')">
+       ondblclick="window.open('https://colonial-doralynne-farman-abdb6af1.koyeb.app/', '_blank')">
     <div class="image-card">
-      <img src="https://i.imgur.com/DMRv3d8.jpeg" alt="HENRY'X BOT">
+      <img src="https://i.imgur.com/DMRv3d8.jpeg" alt="BOT">
     </div>
     <div class="info-panel">
-      <h1>HENRY'X-BOT</h1>
-      <p>PREMIUM FIGHTER ENGINE. BUILT FOR MAXIMUM SPEED AND VIP AUTOMATION. NO LIMITS.</p>
+      <h1>BOT</h1>
+      <p>Facebook Vip Fyter Blt With| Premium Commands And Feel Like Premium. User Aura +999999 HENRY'X made The Bot.</p>
     </div>
     <div class="hint">Tap once to focus • Double tap to launch</div>
   </div>
